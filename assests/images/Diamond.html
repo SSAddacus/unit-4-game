@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>	<link rel="dns-prefetch" href="https://cdn.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn1.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn2.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn3.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn4.vectorstock.com">
+	<link rel="dns-prefetch" href="https://cdn5.vectorstock.com">
+
+	<title>Blue diamond symbol logo Royalty Free Vector Image</title>
+	<meta name="description" content="blue diamond symbol logo vector. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions. ID #21467897.">
+	
+	<meta property="og:site_name" content="VectorStock">
+	<meta property="og:type" content="product">
+	<meta property="og:url" content="https://www.vectorstock.com/royalty-free-vector/blue-diamond-symbol-logo-vector-21467897">
+	<meta property="og:title" content="Blue diamond symbol logo vector image on VectorStock">
+	<meta property="og:description" content="blue diamond symbol logo vector. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+	<meta property="og:image" content="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg">
+	<meta property="og:image:url" content="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg">
+	<meta property="og:image:secure_url" content="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta property="og:image:width" content="1000">
+	<meta property="og:image:height" content="852">
+	<meta property="og:price:amount" content="0.69">
+	<meta property="og:price:currency" content="USD">
+	<meta property="product:price:amount" content="0.69">
+	<meta property="product:price:currency" content="USD">
+
+	<meta property="fb:app_id" content="241100862642313">
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:url" content="https://www.vectorstock.com/royalty-free-vector/blue-diamond-symbol-logo-vector-21467897">
+	<meta name="twitter:title" content="Blue diamond symbol logo vector image">
+	<meta name="twitter:description" content="blue diamond symbol logo vector">
+	<meta name="twitter:image" content="https://cdn3.vectorstock.com/i/thumb-large/78/97/blue-diamond-symbol-logo-vector-21467897.jpg">
+	<meta name="twitter:image:width" content="238">
+	<meta name="twitter:image:height" content="250">
+	<meta name="twitter:site" content="@VectorStock">
+
+	<link rel="canonical" href="https://www.vectorstock.com/royalty-free-vector/blue-diamond-symbol-logo-vector-21467897">
+	<link rel="shortcut icon" href="https://cdn.vectorstock.com/img/icons/favicon.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/common1562298828.min.css">
+	<link rel="stylesheet" href="//cdn.vectorstock.com/cache/vector1562298828.min.css">
+	<script src="//cdn.vectorstock.com/cache/common1562726899.min.js"></script>
+	<script src="//cdn.vectorstock.com/cache/vector1562726899.min.js"></script>
+<!-- Analytics --><script type="text/javascript">// Load GA script
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+// Setup
+ga('create', 'UA-2180430-2', 'none');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+
+<!-- Top header -->
+<header>
+	<nav class="top">
+		<figure>
+			<a href="/" title="VectorStock&reg;">VectorStock&reg;</a>
+		</figure>
+
+		<div class="grid">
+			<form id="searchbox"
+				 class="empty">
+				<div class="wrap">
+					<fieldset>
+						<div class="contents">
+							<div class="tags">
+								<ul></ul>
+							</div>
+							<div class="input">
+								<input type="text" name="input" autocomplete="off"
+									autocapitalize="none" spellcheck="true"
+									value="" placeholder="Search…">
+								<button type="button" data-action="clear">×</button>
+							</div>
+
+							<input type="hidden" name="category" value="">
+							<input type="hidden" name="custom_srp" value="">
+							<input type="hidden" name="artist" value="">
+							<input type="hidden" name="similar" value="">
+						</div>
+					</fieldset>
+
+					<button type="submit">
+						<span class="icon">Search</span>
+					</button>
+				</div>
+			</form>
+			<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+		</div>
+
+		<div class="aside">
+			<ul>
+				<li><a href="/popular-categories" title="Popular Categories">Popular
+						Categories</a></li>
+					<li><button type="button" data-action="signup">Sign Up</button></li>
+				</ul>
+		</div>
+
+		<div id="mobilenav-icon">
+			<span></span><span></span><span></span><span></span>
+		</div>
+	</nav>
+
+	<!-- Submenu -->
+		<nav id="searchrelated"></nav>	
+
+		<!-- Mobile menu -->
+	<div id="mobilenav-menu">
+		<div>
+			<div class="group">
+				<h4>Browse</h4>
+				<ul>
+					<li><a href="/royalty-free-vectors">All Vectors</a></li>
+					<li><a href="/free-vectors">Free Vectors</a></li>
+				</ul>
+			</div>
+			<div class="group">
+				<h4>Account</h4>
+				<ul>
+					<li class="account">
+							<ul>
+								<li><a href="/signup">Sign Up</a></li>
+								<li data-action="login"><a href="/?login=1">Login…</a></li>
+							</ul>
+						</li>
+				</ul>
+				<form method="get" action="/auth/logout" class="logout">
+					<input type="hidden" name="logout" value="1">
+				</form>
+			</div>
+			<div class="group">
+				<h4>Help</h4>
+				<ul>
+					<li><a href="/faq"><abbr title="Frequently Asked Questions">FAQs</abbr></a></li>
+					<li><a href="/contact">Contact Us</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</header>
+
+		<!-- Account Menu Tabs -->
+		<aside id="nav_sidebar" class="tabs tabsDark">
+
+			<nav>
+				<ul role="tablist">
+					<li data-tab-id="signup" class=""><span role="tab"><span>Sign Up</span></span></li>
+					<li data-tab-id="login" class="selected"><span role="tab"><span>Log In</span></span></li>
+				</ul>
+			</nav>
+
+			<section id="sb_signup" data-tab-id="signup" class="">
+				<div class="primary">
+					<p>New to VectorStock?</p>
+					<p><em>We're the largest royalty-free, vector-only stock agency in the world.</em></p>
+					<p>Every week we add new premium graphics by the thousands.</p>
+				</div>
+				<div class="secondary">
+					<p>Whether you're a global ad&nbsp;agency or a freelance graphic designer, we have the vector graphics to make your project come to life.</p>
+					<p>Buy Vectors, sell Vectors or both. <a href="/signup">Sign up now, it’s free.</a></p>
+				</div>
+				<div class="footer">
+					<button class="master">
+						<span class="title">Sign Up...</span>
+						<span class="value">
+							<span class="symbol signup"></span>
+						</span>
+					</button>
+				</div>
+			</section>
+
+			<section id="sb_login" data-tab-id="login" class="selected">
+				<form action="/auth/login" method="post">
+
+
+					<fieldset class="">
+						<label for="vs_username">Email / Username</label>
+						<div class="textfield">
+							<input type="text" id="vs_username" name="vs_username" value="" autocomplete="on" tabindex="1">
+						</div>
+					</fieldset>
+					<fieldset class="">
+						<label for="vs_password">Password</label>
+						<button type="button" class="forgot">Forgot Password</button>
+						<div class="textfield">
+							<input type="password" id="vs_password" name="vs_password" value="" autocomplete="on" tabindex="2"  maxlength="20">
+						</div>
+					</fieldset>
+					<fieldset>
+						<div class="checkbox checked">
+							<label class="selected" for="vs_remember">
+								<span class="title">Stay Logged In</span>
+								<span class="icon"></span>
+								<input type="checkbox" id="vs_remember" name="vs_remember" value="yes" tabindex="3" checked>
+							</label>
+						</div>
+					</fieldset>
+
+
+					<button type="submit" tabindex="4">Log In</button>
+				</form>
+				<div class="alternatives">
+					<h6>Or Login With</h6>
+					<ul>
+						<li class="gp"><a href="/">
+							<span class="title">Google</span>
+							<span class="icon"></span>
+						</a></li>
+						<li class="fb"><a href="/">
+							<span class="title">Facebook</span>
+							<span class="icon"></span>
+						</a></li>
+					</ul>
+				</div>
+
+				
+			</section>
+		</aside>
+
+	<!-- Page -->
+	<article>
+		<section id="vs-asset">
+
+			<!-- Aside -->
+			<div class="aside">
+				<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemtype="http://schema.org/Thing" itemprop="item" itemscope href="/royalty-free-vectors">
+							<span itemprop="name">Royalty Free Vectors</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+						<a itemtype="http://schema.org/Thing" itemprop="item" itemscope href="/royalty-free-vectors/diamond-logo-blue-vectors">
+							<span itemprop="name">Diamond Logo Blue Vectors</span>
+						</a>
+						<meta itemprop="position" content="2" />
+					</li>
+				</ol>
+
+				<h1>
+					Blue diamond symbol logo vector&nbsp;image														</h1>
+
+				<figure style="padding-top: 85.490196078431%;" class="target">
+					<div class="highres" data-src="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg">
+						<noscript><img src="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg" title="Blue diamond symbol logo vector image" alt="Blue diamond symbol logo"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn3.vectorstock.com/i/thumbs/78/97/blue-diamond-symbol-logo-vector-21467897.jpg" title="Blue diamond symbol logo vector image" alt="Blue diamond symbol logo">
+					</div>
+					<div class="overlay"></div>
+				</figure>
+
+				<form data-loggedin="0" data-licenses="2" data-license="standard" data-status="" data-payments="3">
+					<input type="hidden" id="vector_id" value="21467897">
+					<input type="hidden" id="vector_title" value="Blue diamond symbol logo">
+					<input type="hidden" id="vector_description" value="blue diamond symbol logo vector. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+					<input type="hidden" id="vector_url" value="https://www.vectorstock.com/royalty-free-vector/blue-diamond-symbol-logo-vector-21467897">
+					<input type="hidden" id="vector_media" value="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg">
+					<input type="hidden" id="vector_ratio" value="0.85490196078431">
+					<input type="hidden" id="vector_license_status" value="">
+					<input type="hidden" id="artist_name" value="mlanaa">
+					<input type="hidden" id="account_user" value="0">
+
+					<div class="options">
+						<!--
+						-- OPTION: License type
+						-->
+						<div class="option" data-type="license" data-license="standard" data-licenses="2">
+							<h6><span class="type">License</span><a href="/faq/members/standard-license">Learn More</a></h6>
+							<div class="optgroup radgroup">
+								<fieldset>
+									<label for="f_license_standard" class="checked">
+										<input type="radio" id="f_license_standard" name="license" value="standard" checked="checked" tabindex="2">
+										<span class="label">Standard</span>
+										<span class="descr">For Print, Advertising, Design</span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_license_expanded">
+										<input type="radio" id="f_license_expanded" name="license" value="expanded" tabindex="4">
+										<span class="label">Expanded</span>
+										<span class="descr">For Resale &amp; Reproduction</span>
+									</label>
+								</fieldset>
+							</div>
+
+							<div class="help">
+								<p>The license type determines how you can use this image.</p>
+								<table>
+									<thead>
+										<tr>
+											<th></th>
+																						<th data-license="standard">Std.</th>																						<th data-license="expanded">Exp.</th>										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td>Print / Editorial</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Graphic Design</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Web Design</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Social Media</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Edit &amp; Modify</td>
+																						<td data-license="standard"><span class="yes"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Multi-user</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Resale Items</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+										<tr>
+											<td>Unlimited Runs</td>
+																						<td data-license="standard"><span class="no"></span></td>
+											<td data-license="expanded"><span class="yes"></span></td>										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<!--
+						-- OPTION: Payment options (Standard)
+						-->
+						<div class="option" data-type="payment" data-license="standard">
+							<h6><span class="type">Ways to Buy</span><a href="/faq/members/ways-to-buy">Compare</a></h6>
+							<div class="optgroup radgroup" data-license="standard">
+																<fieldset>
+									<label for="f_payment_standard_single-image" class="checked" >
+										<input type="radio" id="f_payment_standard_single-image" name="payment_standard" data-cost="14.99" value="single-image"  checked="checked" tabindex="5">
+										<span class="label">Single Image</span>
+										<span class="value"><small>$</small><var>14.99</var></span>
+									</label>
+								</fieldset>
+																<fieldset>
+									<label for="f_payment_standard_credits">
+										<input type="radio" id="f_payment_standard_credits" name="payment_standard" data-cost="1" value="credits" tabindex="6">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>1.00</var></span>
+									</label>
+								</fieldset>
+								<fieldset>
+									<label for="f_payment_standard_subscription">
+										<input type="radio" id="f_payment_standard_subscription" name="payment_standard" data-cost="1" value="subscription" tabindex="7">
+										<span class="label">Subscription</span>
+										<span class="value"><small>$</small><var>0.69</var></span>
+									</label>
+								</fieldset>
+							</div>
+							<div class="help">
+								<p>There are three ways to pay for Standard licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Image Price</th>
+										</tr>
+									</thead>
+									<tbody>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Single Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>14.99</span>
+												</span>
+												<span class="byline">One-time payment</span>
+											</td>
+										</tr>
+																				<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Pay-As-You-Go Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>1</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1). Minimum purchase of 30.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Subscription Plan</span>
+													<span class="dm"></span>
+													<span class="dd"><em>From</em> 69c</span>
+												</span>
+												<span class="byline">Choose a monthly plan. Unused downloads automatically roll into following month.</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!--
+						-- OPTION: Payment options (Expanded)
+						-->
+						<div class="option" data-type="payment" data-license="expanded">
+							<h6><span class="type">Ways to Buy</span><a href="/faq/members/ways-to-buy">Compare</a></h6>
+							<div class="optgroup radgroup" data-license="expanded">
+																<fieldset>
+									<label for="f_payment_expanded_single-image" class="checked">
+										<input type="radio" id="f_payment_expanded_single-image" name="payment_expanded" data-cost="29.99" value="single-image" checked="checked" tabindex="8">
+										<span class="label">Single Image</span>
+										<span class="value"><small>$</small><var>29.99</var></span>
+									</label>
+								</fieldset>
+																<fieldset>
+									<label for="f_payment_expanded_credits">
+										<input type="radio" id="f_payment_expanded_credits" name="payment_expanded" data-cost="30" value="credits" tabindex="9">
+										<span class="label">Credits</span>
+										<span class="value"><small>$</small><var>30.00</var></span>
+									</label>
+								</fieldset>
+							</div>
+														<div class="help">
+								<p>There are two ways to pay for Expanded licenses. Prices are $<abbr title="United States Dollars">US</abbr>.</p>
+
+								<table>
+									<thead>
+										<tr>
+											<th>Pay with</th>
+											<th>Cost per Image</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Single Image</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>29.99</span>
+												</span>
+												<span class="byline">One-off payment, no signup needed.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span class="title">
+													<span class="dt">Credits</span>
+													<span class="dm"></span>
+													<span class="dd"><small>$</small>30</span>
+												</span>
+												<span class="byline">Download images on-demand (1 credit = $1).</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+													</div>
+					</div>
+					<div class="download">
+						<button type="button" data-action="download">
+							<span class="label">Download Image</span>
+							<span class="icon"></span>
+						</button>
+						<h6><span class="label">Files Included</span></h6>
+						<div class="help">
+							<span class="loading"><span class="label">Loading Details...</span></span>
+						</div>
+					</div>
+					<div class="download_options">
+						<div class="wrap">
+							<div class="optgroup" data-action="download">
+								<span class="header">Download File/s:</span>
+								<div class="dropdown" data-value="zip">
+									<div class="display">
+										<span class="label"><strong>ZIP Archive</strong></span>
+										<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"><path d="M10.6,12.8 15,17.2 19.4,12.8"/></svg></span>
+									</div>
+									<div class="select">
+										<select>
+											<optgroup label="All Files">
+												<option value="zip" data-label="ZIP Archive" data-details="" data-url="" selected="selected">ZIP Archive</option>											</optgroup>
+											<optgroup label="Image">
+												<option value="jpg" data-label="High-res JPG" data-details="300 DPI+" data-url="">High-res JPG (300 DPI+)</option>												<option value="png" data-label="High-res PNG" data-details="300 DPI+" data-url="">High-res PNG (300 DPI+)</option>											</optgroup>
+											<optgroup label="Vector">
+												<option value="ai" data-label="Adobe Illustrator" data-details="v10+" data-url="">Adobe Illustrator (v10+)</option>												<option value="eps" data-label="Vector EPS" data-details="v8+" data-url="">Vector EPS (v8+)</option>												<option value="pdf" data-label="Vector PDF" data-details="" data-url="">Vector PDF</option>											</optgroup>
+										</select>
+									</div>
+								</div>
+								<button type="button" data-action="download_file">
+									<span class="label">Download ZIP</span>
+									<span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M23.6,21.2 23.6,9.5 16.4,9.5 16.4,21.3 10.8,21.3 11,21.5 20,30.5 29.2,21.3"/></svg></span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<!-- Image -->
+			<div class="image">
+				<figure data-orientation="landscape" style="padding-top: 85.490196078431%;" class="target">
+					<div class="highres" data-src="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg">
+						<noscript><img src="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg" title="Blue diamond symbol logo vector image" alt="Blue diamond symbol logo"></noscript>
+					</div>
+					<div class="lowres">
+						<img src="https://cdn3.vectorstock.com/i/thumbs/78/97/blue-diamond-symbol-logo-vector-21467897.jpg" title="Blue diamond symbol logo vector image" alt="Blue diamond symbol logo">
+					</div>
+					<div class="overlay"></div>
+					<div class="panels">
+						<div class="share">
+							<h4>Share on</h4>
+							<ul>
+								<li class="pinterest"><button type="button" data-action="pinterest"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M12.5,0C5.6,0,0,5.6,0,12.5c0,5.12,3.08,9.52,7.48,11.45c-0.03-0.87-0.01-1.92,0.22-2.87c0.24-1.01,1.61-6.81,1.61-6.81s-0.4-0.8-0.4-1.98c0-1.85,1.07-3.24,2.41-3.24c1.14,0,1.69,0.85,1.69,1.88c0,1.14-0.73,2.85-1.1,4.44c-0.31,1.33,0.67,2.41,1.97,2.41c2.37,0,3.96-3.04,3.96-6.65c0-2.74-1.85-4.79-5.2-4.79c-3.79,0-6.15,2.83-6.15,5.99c0,1.09,0.32,1.86,0.82,2.45c0.23,0.27,0.26,0.38,0.18,0.7c-0.06,0.23-0.2,0.78-0.25,1c-0.08,0.32-0.34,0.43-0.63,0.31c-1.75-0.71-2.56-2.62-2.56-4.77c0-3.55,3-7.81,8.93-7.81c4.77,0,7.91,3.45,7.91,7.16c0,4.9-2.73,8.57-6.75,8.57c-1.35,0-2.62-0.73-3.05-1.56c0,0-0.73,2.88-0.88,3.44c-0.27,0.96-0.78,1.93-1.26,2.68C10.08,24.82,11.27,25,12.5,25C19.4,25,25,19.4,25,12.5S19.4,0,12.5,0L12.5,0z"/></svg></span><span class="label">Pinterest</span></span></button></li>
+								<li class="facebook"><button type="button" data-action="facebook"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M22.44,1H2.56C1.7,1,1,1.7,1,2.56v19.88C1,23.3,1.7,24,2.56,24h10.41v-8.89H9.98v-3.46h2.99V9.1c0-2.96,1.81-4.58,4.45-4.58c1.27,0,2.35,0.09,2.67,0.14v3.1l-1.83,0c-1.44,0-1.72,0.68-1.72,1.69v2.21h3.43l-0.45,3.46h-2.98V24h5.89C23.3,24,24,23.3,24,22.44V2.56C24,1.7,23.3,1,22.44,1z"/></svg></span><span class="label">Facebook</span></span></button></li>
+								<li class="twitter"><button type="button" data-action="twitter"><span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" focusable="false" role="img"><path d="M7.86,22.5c9.43,0,14.59-7.69,14.59-14.37c0-0.22,0-0.44-0.01-0.65c1-0.71,1.87-1.6,2.56-2.61c-0.92,0.4-1.91,0.67-2.95,0.79c1.06-0.62,1.87-1.61,2.26-2.79c-0.99,0.58-2.09,1-3.26,1.23c-0.94-0.98-2.27-1.6-3.74-1.6c-2.83,0-5.13,2.26-5.13,5.05c0,0.4,0.05,0.78,0.13,1.15C8.05,8.49,4.27,6.48,1.74,3.42C1.3,4.17,1.05,5.04,1.05,5.96c0,1.75,0.91,3.3,2.28,4.2C2.49,10.14,1.7,9.91,1,9.53C1,9.55,1,9.58,1,9.6c0,2.45,1.77,4.49,4.11,4.95c-0.43,0.12-0.88,0.18-1.35,0.18c-0.33,0-0.65-0.03-0.96-0.09c0.65,2.01,2.55,3.47,4.79,3.51C5.84,19.5,3.63,20.3,1.22,20.3c-0.41,0-0.82-0.02-1.22-0.07C2.27,21.66,4.97,22.5,7.86,22.5"/></svg></span><span class="label">Twitter</span></span></button></li>
+							</ul>
+						</div>
+						<div class="composite">
+							<button type="button" data-action="download"><span><span class="label">Download JPG Preview Image</span></span></button>
+						</div>
+					</div>
+				</figure>
+				<div class="details">
+					<div class="meta">
+						<ul>
+							<li class="meta-id">
+								<dl><dt>Image ID</dt><dd>21467897</dd></dl>
+							</li>
+							<li class="meta-artist">
+								<dl>
+									<dt>Artist</dt>
+									<dd><a href="/royalty-free-vectors/vectors-by_mlanaa" rel="nofollow">mlanaa</a><button type="button" data-action="follow" title="Follow Artists that you like to create a newsfeed of their recent images."><span class="label">Follow</span></button></dd>
+								</dl>
+							</li>
+						</ul>
+					</div>
+					<div class="options" data-total="2">
+						<ul>
+							<li class="opt-like">
+								<button type="button" data-action="like" data-count="0"><span class="icon">&hearts;</span><span class="label">Like</span><span class="tally"></span></button>
+							</li>
+							<li class="opt-cart">
+								<button type="button" data-action="cart"><span class="icon">+</span><span class="label">Cart</span></button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Metadata -->
+			<div class="metadata">
+				<div itemtype="http://schema.org/Product" itemscope>
+					<meta itemprop="sku" content="21467897">
+					<meta itemprop="productID" content="21467897">
+					<meta itemprop="name" content="Blue diamond symbol logo">
+					<meta itemprop="description" content="blue diamond symbol logo vector. Download a Free Preview or High Quality Adobe Illustrator Ai, EPS, PDF and High Resolution JPEG versions.">
+					<meta itemprop="releaseDate" content="2018-08-08">
+					<link itemprop="image" href="https://cdn3.vectorstock.com/i/1000x1000/78/97/blue-diamond-symbol-logo-vector-21467897.jpg">
+					
+					<div itemprop="brand" itemtype="http://schema.org/Thing" itemscope>
+						<meta itemprop="name" content="VectorStock">
+					</div>
+					<div itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+						<link itemprop="url" href="https://www.vectorstock.com/royalty-free-vector/blue-diamond-symbol-logo-vector-21467897">
+						<meta itemprop="availability" content="https://schema.org/InStock">
+						<div itemprop="price">0.69</div>
+						<div itemprop="priceCurrency">USD</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<section id="vs-related">
+			<div id="group-similar" class="group">
+				<h6><span class="icon"></span><strong>Similar Images</strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/02/25/diamond-flat-icon-vector-21680225.jpg"><a href="//www.vectorstock.com/royalty-free-vector/diamond-flat-icon-vector-21680225" title="diamond flat icon vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/02/25/diamond-flat-icon-vector-21680225.jpg" title="diamond flat icon" alt="diamond flat icon vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/77/46/ruby-luxury-logo-jewelry-shop-vector-23217746.jpg"><a href="//www.vectorstock.com/royalty-free-vector/ruby-luxury-logo-jewelry-shop-vector-23217746" title="ruby luxury logo - jewelry shop vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/77/46/ruby-luxury-logo-jewelry-shop-vector-23217746.jpg" title="ruby luxury logo - jewelry shop" alt="ruby luxury logo - jewelry shop vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/55/73/diamond-icon-design-template-isolated-vector-25875573.jpg"><a href="//www.vectorstock.com/royalty-free-vector/diamond-icon-design-template-isolated-vector-25875573" title="diamond icon design template isolated vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/55/73/diamond-icon-design-template-isolated-vector-25875573.jpg" title="diamond icon design template isolated" alt="diamond icon design template isolated vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/42/18/set-with-a-wireframe-of-geometric-shapes-of-vector-24244218.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-with-a-wireframe-of-geometric-shapes-of-vector-24244218" title="set with a wireframe of geometric shapes of vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/42/18/set-with-a-wireframe-of-geometric-shapes-of-vector-24244218.jpg" title="set with a wireframe of geometric shapes of" alt="set with a wireframe of geometric shapes of vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/25/15/emerald-logo-concept-creative-minimal-design-vector-24242515.jpg"><a href="//www.vectorstock.com/royalty-free-vector/emerald-logo-concept-creative-minimal-design-vector-24242515" title="emerald logo concept creative minimal design vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/25/15/emerald-logo-concept-creative-minimal-design-vector-24242515.jpg" title="emerald logo concept creative minimal design" alt="emerald logo concept creative minimal design vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/91/12/white-snowflakes-on-gradient-background-seamless-vector-22949112.jpg"><a href="//www.vectorstock.com/royalty-free-vector/white-snowflakes-on-gradient-background-seamless-vector-22949112" title="white snowflakes on gradient background seamless vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/91/12/white-snowflakes-on-gradient-background-seamless-vector-22949112.jpg" title="white snowflakes on gradient background seamless" alt="white snowflakes on gradient background seamless vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/57/12/aquamarine-gem-shining-logo-drop-shaped-vector-23575712.jpg"><a href="//www.vectorstock.com/royalty-free-vector/aquamarine-gem-shining-logo-drop-shaped-vector-23575712" title="aquamarine gem shining logo drop shaped vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/57/12/aquamarine-gem-shining-logo-drop-shaped-vector-23575712.jpg" title="aquamarine gem shining logo drop shaped" alt="aquamarine gem shining logo drop shaped vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/46/93/crystal-stone-or-precious-stone-blue-colors-vector-23534693.jpg"><a href="//www.vectorstock.com/royalty-free-vector/crystal-stone-or-precious-stone-blue-colors-vector-23534693" title="crystal stone or precious stone blue colors vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/46/93/crystal-stone-or-precious-stone-blue-colors-vector-23534693.jpg" title="crystal stone or precious stone blue colors" alt="crystal stone or precious stone blue colors vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/42/68/emerald-gem-logo-design-vector-24904268.jpg"><a href="//www.vectorstock.com/royalty-free-vector/emerald-gem-logo-design-vector-24904268" title="emerald gem logo design vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/42/68/emerald-gem-logo-design-vector-24904268.jpg" title="emerald gem logo design" alt="emerald gem logo design vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/14/33/mosaic-triangular-low-poly-style-abstract-vector-23311433.jpg"><a href="//www.vectorstock.com/royalty-free-vector/mosaic-triangular-low-poly-style-abstract-vector-23311433" title="mosaic triangular low poly style abstract vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/14/33/mosaic-triangular-low-poly-style-abstract-vector-23311433.jpg" title="mosaic triangular low poly style abstract" alt="mosaic triangular low poly style abstract vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/70/61/pink-dazzling-diamond-on-black-background-vector-20997061.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pink-dazzling-diamond-on-black-background-vector-20997061" title="pink dazzling diamond on black background vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/70/61/pink-dazzling-diamond-on-black-background-vector-20997061.jpg" title="pink dazzling diamond on black background" alt="pink dazzling diamond on black background vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/73/11/winter-snowflake-romb-icon-vector-22997311.jpg"><a href="//www.vectorstock.com/royalty-free-vector/winter-snowflake-romb-icon-vector-22997311" title="winter snowflake romb icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/73/11/winter-snowflake-romb-icon-vector-22997311.jpg" title="winter snowflake romb icon" alt="winter snowflake romb icon vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/73/85/diamond-on-dark-background-shining-gemstone-vector-23657385.jpg"><a href="//www.vectorstock.com/royalty-free-vector/diamond-on-dark-background-shining-gemstone-vector-23657385" title="diamond on dark background shining gemstone vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/73/85/diamond-on-dark-background-shining-gemstone-vector-23657385.jpg" title="diamond on dark background shining gemstone" alt="diamond on dark background shining gemstone vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/91/73/colorful-set-of-logos-on-white-and-black-vector-21869173.jpg"><a href="//www.vectorstock.com/royalty-free-vector/colorful-set-of-logos-on-white-and-black-vector-21869173" title="colorful set of logos on white and black vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/91/73/colorful-set-of-logos-on-white-and-black-vector-21869173.jpg" title="colorful set of logos on white and black" alt="colorful set of logos on white and black vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/00/89/abstract-crystal-sign-vector-21100089.jpg"><a href="//www.vectorstock.com/royalty-free-vector/abstract-crystal-sign-vector-21100089" title="abstract crystal sign vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/00/89/abstract-crystal-sign-vector-21100089.jpg" title="abstract crystal sign" alt="abstract crystal sign vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/14/14/blue-stone-geometric-line-art-outline-logo-vector-24171414.jpg"><a href="//www.vectorstock.com/royalty-free-vector/blue-stone-geometric-line-art-outline-logo-vector-24171414" title="blue stone geometric line art outline logo vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/14/14/blue-stone-geometric-line-art-outline-logo-vector-24171414.jpg" title="blue stone geometric line art outline logo" alt="blue stone geometric line art outline logo vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/24/61/geometric-diamond-logo-template-with-blue-color-vector-22452461.jpg"><a href="//www.vectorstock.com/royalty-free-vector/geometric-diamond-logo-template-with-blue-color-vector-22452461" title="geometric diamond logo template with blue color vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/24/61/geometric-diamond-logo-template-with-blue-color-vector-22452461.jpg" title="geometric diamond logo template with blue color" alt="geometric diamond logo template with blue color vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/48/74/sstar-of-david-symbol-filled-and-outlined-style-vector-24504874.jpg"><a href="//www.vectorstock.com/royalty-free-vector/sstar-of-david-symbol-filled-and-outlined-style-vector-24504874" title="sstar of david symbol filled and outlined style vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/48/74/sstar-of-david-symbol-filled-and-outlined-style-vector-24504874.jpg" title="sstar of david symbol filled and outlined style" alt="sstar of david symbol filled and outlined style vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/40/41/star-hexagon-logo-design-concept-template-vector-21194041.jpg"><a href="//www.vectorstock.com/royalty-free-vector/star-hexagon-logo-design-concept-template-vector-21194041" title="star hexagon logo design concept template vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/40/41/star-hexagon-logo-design-concept-template-vector-21194041.jpg" title="star hexagon logo design concept template" alt="star hexagon logo design concept template vector image"></noscript></a></li>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/33/84/design-elements-set-vector-25233384.jpg"><a href="//www.vectorstock.com/royalty-free-vector/design-elements-set-vector-25233384" title="design elements set vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/33/84/design-elements-set-vector-25233384.jpg" title="design elements set" alt="design elements set vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="24231990" data-title="luxury diamond icon from lines and particle" data-src="https://cdn1.vectorstock.com/i/thumbs/19/90/luxury-diamond-icon-from-lines-and-particle-vector-24231990.jpg"><a href="//www.vectorstock.com/royalty-free-vector/luxury-diamond-icon-from-lines-and-particle-vector-24231990" title="luxury diamond icon from lines and particle vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/19/90/luxury-diamond-icon-from-lines-and-particle-vector-24231990.jpg" title="luxury diamond icon from lines and particle" alt="luxury diamond icon from lines and particle vector image"></noscript></a></li>
+						<li data-id="26007502" data-title="blue diamond and logo" data-src="https://cdn3.vectorstock.com/i/thumbs/75/02/blue-diamond-and-logo-vector-26007502.jpg"><a href="//www.vectorstock.com/royalty-free-vector/blue-diamond-and-logo-vector-26007502" title="blue diamond and logo vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/75/02/blue-diamond-and-logo-vector-26007502.jpg" title="blue diamond and logo" alt="blue diamond and logo vector image"></noscript></a></li>
+						<li data-id="21432633" data-title="yellow topaz jewelry icon realistic style" data-src="https://cdn4.vectorstock.com/i/thumbs/26/33/yellow-topaz-jewelry-icon-realistic-style-vector-21432633.jpg"><a href="//www.vectorstock.com/royalty-free-vector/yellow-topaz-jewelry-icon-realistic-style-vector-21432633" title="yellow topaz jewelry icon realistic style vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/26/33/yellow-topaz-jewelry-icon-realistic-style-vector-21432633.jpg" title="yellow topaz jewelry icon realistic style" alt="yellow topaz jewelry icon realistic style vector image"></noscript></a></li>
+						<li data-id="21307127" data-title="abstract diamond business logo" data-src="https://cdn3.vectorstock.com/i/thumbs/71/27/abstract-diamond-business-logo-vector-21307127.jpg"><a href="//www.vectorstock.com/royalty-free-vector/abstract-diamond-business-logo-vector-21307127" title="abstract diamond business logo vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/71/27/abstract-diamond-business-logo-vector-21307127.jpg" title="abstract diamond business logo" alt="abstract diamond business logo vector image"></noscript></a></li>
+						<li data-id="21419359" data-title="golden basketball low poly design" data-src="https://cdn5.vectorstock.com/i/thumbs/93/59/golden-basketball-low-poly-design-vector-21419359.jpg"><a href="//www.vectorstock.com/royalty-free-vector/golden-basketball-low-poly-design-vector-21419359" title="golden basketball low poly design vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/93/59/golden-basketball-low-poly-design-vector-21419359.jpg" title="golden basketball low poly design" alt="golden basketball low poly design vector image"></noscript></a></li>
+						<li data-id="23765023" data-title="sea urchin thin linear simple icon" data-src="https://cdn4.vectorstock.com/i/thumbs/50/23/sea-urchin-thin-linear-simple-icon-vector-23765023.jpg"><a href="//www.vectorstock.com/royalty-free-vector/sea-urchin-thin-linear-simple-icon-vector-23765023" title="sea urchin thin linear simple icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/50/23/sea-urchin-thin-linear-simple-icon-vector-23765023.jpg" title="sea urchin thin linear simple icon" alt="sea urchin thin linear simple icon vector image"></noscript></a></li>
+						<li data-id="23331814" data-title="set of diamond crystal logos jewelry gem" data-src="https://cdn5.vectorstock.com/i/thumbs/18/14/set-of-diamond-crystal-logos-jewelry-gem-vector-23331814.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-of-diamond-crystal-logos-jewelry-gem-vector-23331814" title="set of diamond crystal logos jewelry gem vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/18/14/set-of-diamond-crystal-logos-jewelry-gem-vector-23331814.jpg" title="set of diamond crystal logos jewelry gem" alt="set of diamond crystal logos jewelry gem vector image"></noscript></a></li>
+						<li data-id="25177470" data-title="cube star colorful logo icon element and" data-src="https://cdn1.vectorstock.com/i/thumbs/74/70/cube-star-colorful-logo-icon-element-and-vector-25177470.jpg"><a href="//www.vectorstock.com/royalty-free-vector/cube-star-colorful-logo-icon-element-and-vector-25177470" title="cube star colorful logo icon element and vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/74/70/cube-star-colorful-logo-icon-element-and-vector-25177470.jpg" title="cube star colorful logo icon element and" alt="cube star colorful logo icon element and vector image"></noscript></a></li>
+						<li data-id="23233619" data-title="fantastic galaxy heart isolated on white" data-src="https://cdn5.vectorstock.com/i/thumbs/36/19/fantastic-galaxy-heart-isolated-on-white-vector-23233619.jpg"><a href="//www.vectorstock.com/royalty-free-vector/fantastic-galaxy-heart-isolated-on-white-vector-23233619" title="fantastic galaxy heart isolated on white vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/36/19/fantastic-galaxy-heart-isolated-on-white-vector-23233619.jpg" title="fantastic galaxy heart isolated on white" alt="fantastic galaxy heart isolated on white vector image"></noscript></a></li>
+						<li data-id="25843369" data-title="abstract decorative shape gemstone background" data-src="https://cdn5.vectorstock.com/i/thumbs/33/69/abstract-decorative-shape-gemstone-background-vector-25843369.jpg"><a href="//www.vectorstock.com/royalty-free-vector/abstract-decorative-shape-gemstone-background-vector-25843369" title="abstract decorative shape gemstone background vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/33/69/abstract-decorative-shape-gemstone-background-vector-25843369.jpg" title="abstract decorative shape gemstone background" alt="abstract decorative shape gemstone background vector image"></noscript></a></li>
+						<li data-id="25732391" data-title="superhero kids design" data-src="https://cdn2.vectorstock.com/i/thumbs/23/91/superhero-kids-design-vector-25732391.jpg"><a href="//www.vectorstock.com/royalty-free-vector/superhero-kids-design-vector-25732391" title="superhero kids design vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/23/91/superhero-kids-design-vector-25732391.jpg" title="superhero kids design" alt="superhero kids design vector image"></noscript></a></li>
+						<li data-id="22461753" data-title="different in color shape and cut gems on black" data-src="https://cdn4.vectorstock.com/i/thumbs/17/53/different-in-color-shape-and-cut-gems-on-black-vector-22461753.jpg"><a href="//www.vectorstock.com/royalty-free-vector/different-in-color-shape-and-cut-gems-on-black-vector-22461753" title="different in color shape and cut gems on black vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/17/53/different-in-color-shape-and-cut-gems-on-black-vector-22461753.jpg" title="different in color shape and cut gems on black" alt="different in color shape and cut gems on black vector image"></noscript></a></li>
+						<li data-id="26089362" data-title="creative abstract diamond logo design symbol" data-src="https://cdn3.vectorstock.com/i/thumbs/93/62/creative-abstract-diamond-logo-design-symbol-vector-26089362.jpg"><a href="//www.vectorstock.com/royalty-free-vector/creative-abstract-diamond-logo-design-symbol-vector-26089362" title="creative abstract diamond logo design symbol vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/93/62/creative-abstract-diamond-logo-design-symbol-vector-26089362.jpg" title="creative abstract diamond logo design symbol" alt="creative abstract diamond logo design symbol vector image"></noscript></a></li>
+						<li data-id="23001690" data-title="triangle abstract ornament logo" data-src="https://cdn1.vectorstock.com/i/thumbs/16/90/triangle-abstract-ornament-logo-vector-23001690.jpg"><a href="//www.vectorstock.com/royalty-free-vector/triangle-abstract-ornament-logo-vector-23001690" title="triangle abstract ornament logo vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/16/90/triangle-abstract-ornament-logo-vector-23001690.jpg" title="triangle abstract ornament logo" alt="triangle abstract ornament logo vector image"></noscript></a></li>
+						<li data-id="23101438" data-title="jewelry shop neon sign diamond icon neon banner" data-src="https://cdn4.vectorstock.com/i/thumbs/14/38/jewelry-shop-neon-sign-diamond-icon-neon-banner-vector-23101438.jpg"><a href="//www.vectorstock.com/royalty-free-vector/jewelry-shop-neon-sign-diamond-icon-neon-banner-vector-23101438" title="jewelry shop neon sign diamond icon neon banner vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/14/38/jewelry-shop-neon-sign-diamond-icon-neon-banner-vector-23101438.jpg" title="jewelry shop neon sign diamond icon neon banner" alt="jewelry shop neon sign diamond icon neon banner vector image"></noscript></a></li>
+						<li data-id="22935834" data-title="sapphire gemstone" data-src="https://cdn5.vectorstock.com/i/thumbs/58/34/sapphire-gemstone-vector-22935834.jpg"><a href="//www.vectorstock.com/royalty-free-vector/sapphire-gemstone-vector-22935834" title="sapphire gemstone vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/58/34/sapphire-gemstone-vector-22935834.jpg" title="sapphire gemstone" alt="sapphire gemstone vector image"></noscript></a></li>
+						<li data-id="22850752" data-title="outline gem stone crystal geometric creative logo" data-src="https://cdn3.vectorstock.com/i/thumbs/07/52/outline-gem-stone-crystal-geometric-creative-logo-vector-22850752.jpg"><a href="//www.vectorstock.com/royalty-free-vector/outline-gem-stone-crystal-geometric-creative-logo-vector-22850752" title="outline gem stone crystal geometric creative logo vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/07/52/outline-gem-stone-crystal-geometric-creative-logo-vector-22850752.jpg" title="outline gem stone crystal geometric creative logo" alt="outline gem stone crystal geometric creative logo vector image"></noscript></a></li>
+						<li data-id="22507955" data-title="star light logo template" data-src="https://cdn1.vectorstock.com/i/thumbs/79/55/star-light-logo-template-vector-22507955.jpg"><a href="//www.vectorstock.com/royalty-free-vector/star-light-logo-template-vector-22507955" title="star light logo template vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/79/55/star-light-logo-template-vector-22507955.jpg" title="star light logo template" alt="star light logo template vector image"></noscript></a></li>
+						<li data-id="21316920" data-title="set of geometric shapes geometric background" data-src="https://cdn1.vectorstock.com/i/thumbs/69/20/set-of-geometric-shapes-geometric-background-vector-21316920.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-of-geometric-shapes-geometric-background-vector-21316920" title="set of geometric shapes geometric background vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/69/20/set-of-geometric-shapes-geometric-background-vector-21316920.jpg" title="set of geometric shapes geometric background" alt="set of geometric shapes geometric background vector image"></noscript></a></li>
+						<li data-id="21788739" data-title="orange lion logo" data-src="https://cdn5.vectorstock.com/i/thumbs/87/39/orange-lion-logo-vector-21788739.jpg"><a href="//www.vectorstock.com/royalty-free-vector/orange-lion-logo-vector-21788739" title="orange lion logo vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/87/39/orange-lion-logo-vector-21788739.jpg" title="orange lion logo" alt="orange lion logo vector image"></noscript></a></li>
+						<li data-id="24415537" data-title="set of vintage mining emblems" data-src="https://cdn3.vectorstock.com/i/thumbs/55/37/set-of-vintage-mining-emblems-vector-24415537.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-of-vintage-mining-emblems-vector-24415537" title="set of vintage mining emblems vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/55/37/set-of-vintage-mining-emblems-vector-24415537.jpg" title="set of vintage mining emblems" alt="set of vintage mining emblems vector image"></noscript></a></li>
+						<li data-id="21172987" data-title="snowflake icon blue silhouette snow flake sign" data-src="https://cdn3.vectorstock.com/i/thumbs/29/87/snowflake-icon-blue-silhouette-snow-flake-sign-vector-21172987.jpg"><a href="//www.vectorstock.com/royalty-free-vector/snowflake-icon-blue-silhouette-snow-flake-sign-vector-21172987" title="snowflake icon blue silhouette snow flake sign vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/29/87/snowflake-icon-blue-silhouette-snow-flake-sign-vector-21172987.jpg" title="snowflake icon blue silhouette snow flake sign" alt="snowflake icon blue silhouette snow flake sign vector image"></noscript></a></li>
+						<li data-id="10278457" data-title="geometric diamond hexagon blue icon star" data-src="https://cdn3.vectorstock.com/i/thumbs/84/57/geometric-diamond-hexagon-blue-icon-star-vector-10278457.jpg"><a href="//www.vectorstock.com/royalty-free-vector/geometric-diamond-hexagon-blue-icon-star-vector-10278457" title="geometric diamond hexagon blue icon star vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/84/57/geometric-diamond-hexagon-blue-icon-star-vector-10278457.jpg" title="geometric diamond hexagon blue icon star" alt="geometric diamond hexagon blue icon star vector image"></noscript></a></li>
+						<li data-id="24912120" data-title="grunge isolated snowflake" data-src="https://cdn1.vectorstock.com/i/thumbs/21/20/grunge-isolated-snowflake-vector-24912120.jpg"><a href="//www.vectorstock.com/royalty-free-vector/grunge-isolated-snowflake-vector-24912120" title="grunge isolated snowflake vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/21/20/grunge-isolated-snowflake-vector-24912120.jpg" title="grunge isolated snowflake" alt="grunge isolated snowflake vector image"></noscript></a></li>
+						<li data-id="22996866" data-title="triangle stripe logo" data-src="https://cdn2.vectorstock.com/i/thumbs/68/66/triangle-stripe-logo-vector-22996866.jpg"><a href="//www.vectorstock.com/royalty-free-vector/triangle-stripe-logo-vector-22996866" title="triangle stripe logo vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/68/66/triangle-stripe-logo-vector-22996866.jpg" title="triangle stripe logo" alt="triangle stripe logo vector image"></noscript></a></li>
+						<li data-id="21824763" data-title="set super dad logo superhero t-shirt design" data-src="https://cdn4.vectorstock.com/i/thumbs/47/63/set-super-dad-logo-superhero-t-shirt-design-vector-21824763.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-super-dad-logo-superhero-t-shirt-design-vector-21824763" title="set super dad logo superhero t-shirt design vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/47/63/set-super-dad-logo-superhero-t-shirt-design-vector-21824763.jpg" title="set super dad logo superhero t-shirt design" alt="set super dad logo superhero t-shirt design vector image"></noscript></a></li>
+						<li data-id="26048506" data-title="glamour pink diamonds pattern crystals decoration" data-src="https://cdn2.vectorstock.com/i/thumbs/85/06/glamour-pink-diamonds-pattern-crystals-decoration-vector-26048506.jpg"><a href="//www.vectorstock.com/royalty-free-vector/glamour-pink-diamonds-pattern-crystals-decoration-vector-26048506" title="glamour pink diamonds pattern crystals decoration vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/85/06/glamour-pink-diamonds-pattern-crystals-decoration-vector-26048506.jpg" title="glamour pink diamonds pattern crystals decoration" alt="glamour pink diamonds pattern crystals decoration vector image"></noscript></a></li>
+						<li data-id="25875379" data-title="stem concept two modern banners in outline" data-src="https://cdn5.vectorstock.com/i/thumbs/53/79/stem-concept-two-modern-banners-in-outline-vector-25875379.jpg"><a href="//www.vectorstock.com/royalty-free-vector/stem-concept-two-modern-banners-in-outline-vector-25875379" title="stem concept two modern banners in outline vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/53/79/stem-concept-two-modern-banners-in-outline-vector-25875379.jpg" title="stem concept two modern banners in outline" alt="stem concept two modern banners in outline vector image"></noscript></a></li>
+						<li data-id="21353567" data-title="diamonds color set" data-src="https://cdn3.vectorstock.com/i/thumbs/35/67/diamonds-color-set-vector-21353567.jpg"><a href="//www.vectorstock.com/royalty-free-vector/diamonds-color-set-vector-21353567" title="diamonds color set vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/35/67/diamonds-color-set-vector-21353567.jpg" title="diamonds color set" alt="diamonds color set vector image"></noscript></a></li>
+						<li data-id="26183471" data-title="star david template icon" data-src="https://cdn2.vectorstock.com/i/thumbs/34/71/star-david-template-icon-vector-26183471.jpg"><a href="//www.vectorstock.com/royalty-free-vector/star-david-template-icon-vector-26183471" title="star david template icon vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumbs/34/71/star-david-template-icon-vector-26183471.jpg" title="star david template icon" alt="star david template icon vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/diamond-logo-blue-vectors"><span class="lrg">More Diamond Logo Blue Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-artist" class="group">
+				<h6><span class="icon"></span><strong>More by <a href="/royalty-free-vectors/vectors-by_mlanaa" rel="nofollow">mlanaa</a></strong></h6>
+
+				<div class="gallery large">
+					<ul>
+						<li data-src="https://cdn5.vectorstock.com/i/thumb-large/34/54/diamond-precious-stone-trillion-vector-21723454.jpg"><a href="//www.vectorstock.com/royalty-free-vector/diamond-precious-stone-trillion-vector-21723454" title="diamond precious stone trillion vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumb-large/34/54/diamond-precious-stone-trillion-vector-21723454.jpg" title="diamond precious stone trillion" alt="diamond precious stone trillion vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/62/15/color-gem-stone-round-diamonds-on-white-vector-21716215.jpg"><a href="//www.vectorstock.com/royalty-free-vector/color-gem-stone-round-diamonds-on-white-vector-21716215" title="color gem stone round diamonds on white vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/62/15/color-gem-stone-round-diamonds-on-white-vector-21716215.jpg" title="color gem stone round diamonds on white" alt="color gem stone round diamonds on white vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/61/81/multi-color-gem-stone-round-diamonds-on-vector-21716181.jpg"><a href="//www.vectorstock.com/royalty-free-vector/multi-color-gem-stone-round-diamonds-on-vector-21716181" title="multi color gem stone round diamonds on vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/61/81/multi-color-gem-stone-round-diamonds-on-vector-21716181.jpg" title="multi color gem stone round diamonds on" alt="multi color gem stone round diamonds on vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/16/18/conceptual-spaceship-flying-icon-vector-20901618.jpg"><a href="//www.vectorstock.com/royalty-free-vector/conceptual-spaceship-flying-icon-vector-20901618" title="conceptual spaceship flying icon vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/16/18/conceptual-spaceship-flying-icon-vector-20901618.jpg" title="conceptual spaceship flying icon" alt="conceptual spaceship flying icon vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/33/42/gem-stone-round-diamond-on-white-polygonal-vector-21723342.jpg"><a href="//www.vectorstock.com/royalty-free-vector/gem-stone-round-diamond-on-white-polygonal-vector-21723342" title="gem stone round diamond on white polygonal vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/33/42/gem-stone-round-diamond-on-white-polygonal-vector-21723342.jpg" title="gem stone round diamond on white polygonal" alt="gem stone round diamond on white polygonal vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/16/16/hand-painted-watercolor-growing-flower-sunflower-vector-20901616.jpg"><a href="//www.vectorstock.com/royalty-free-vector/hand-painted-watercolor-growing-flower-sunflower-vector-20901616" title="hand painted watercolor growing flower sunflower vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/16/16/hand-painted-watercolor-growing-flower-sunflower-vector-20901616.jpg" title="hand painted watercolor growing flower sunflower" alt="hand painted watercolor growing flower sunflower vector image"></noscript></a></li>
+						<li data-src="https://cdn4.vectorstock.com/i/thumb-large/32/83/set-of-abstract-backgrounds-of-pastel-vector-23493283.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-of-abstract-backgrounds-of-pastel-vector-23493283" title="set of abstract backgrounds of pastel vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumb-large/32/83/set-of-abstract-backgrounds-of-pastel-vector-23493283.jpg" title="set of abstract backgrounds of pastel" alt="set of abstract backgrounds of pastel vector image"></noscript></a></li>
+						<li data-src="https://cdn2.vectorstock.com/i/thumb-large/78/96/set-of-gems-diamonds-of-blue-vector-21467896.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-of-gems-diamonds-of-blue-vector-21467896" title="set of gems diamonds of blue vector image"><noscript><img src="https://cdn2.vectorstock.com/i/thumb-large/78/96/set-of-gems-diamonds-of-blue-vector-21467896.jpg" title="set of gems diamonds of blue" alt="set of gems diamonds of blue vector image"></noscript></a></li>
+						<li data-src="https://cdn3.vectorstock.com/i/thumb-large/32/67/set-of-glasses-with-a-frame-of-different-shapes-of-vector-23493267.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-of-glasses-with-a-frame-of-different-shapes-of-vector-23493267" title="set of glasses with a frame of different shapes of vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumb-large/32/67/set-of-glasses-with-a-frame-of-different-shapes-of-vector-23493267.jpg" title="set of glasses with a frame of different shapes of" alt="set of glasses with a frame of different shapes of vector image"></noscript></a></li>
+						<li data-src="https://cdn1.vectorstock.com/i/thumb-large/60/10/pattern-with-easter-eggs-white-line-pattern-on-vector-24596010.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-easter-eggs-white-line-pattern-on-vector-24596010" title="pattern with easter eggs white line pattern on vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumb-large/60/10/pattern-with-easter-eggs-white-line-pattern-on-vector-24596010.jpg" title="pattern with easter eggs white line pattern on" alt="pattern with easter eggs white line pattern on vector image"></noscript></a></li>
+					</ul>
+				</div>
+				<div class="gallery small more">
+					<ul>
+						<li data-id="24596003" data-title="pattern with easter eggs white line pattern on" data-src="https://cdn4.vectorstock.com/i/thumbs/60/03/pattern-with-easter-eggs-white-line-pattern-on-vector-24596003.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-easter-eggs-white-line-pattern-on-vector-24596003" title="pattern with easter eggs white line pattern on vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/60/03/pattern-with-easter-eggs-white-line-pattern-on-vector-24596003.jpg" title="pattern with easter eggs white line pattern on" alt="pattern with easter eggs white line pattern on vector image vector image"></noscript></a></li>
+						<li data-id="24596009" data-title="pattern with easter eggs white line pattern on" data-src="https://cdn5.vectorstock.com/i/thumbs/60/09/pattern-with-easter-eggs-white-line-pattern-on-vector-24596009.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-easter-eggs-white-line-pattern-on-vector-24596009" title="pattern with easter eggs white line pattern on vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/60/09/pattern-with-easter-eggs-white-line-pattern-on-vector-24596009.jpg" title="pattern with easter eggs white line pattern on" alt="pattern with easter eggs white line pattern on vector image vector image"></noscript></a></li>
+						<li data-id="24596035" data-title="pattern with easter eggs white line pattern on" data-src="https://cdn1.vectorstock.com/i/thumbs/60/35/pattern-with-easter-eggs-white-line-pattern-on-vector-24596035.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-easter-eggs-white-line-pattern-on-vector-24596035" title="pattern with easter eggs white line pattern on vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/60/35/pattern-with-easter-eggs-white-line-pattern-on-vector-24596035.jpg" title="pattern with easter eggs white line pattern on" alt="pattern with easter eggs white line pattern on vector image vector image"></noscript></a></li>
+						<li data-id="24596042" data-title="pattern with easter eggs white line pattern on" data-src="https://cdn3.vectorstock.com/i/thumbs/60/42/pattern-with-easter-eggs-white-line-pattern-on-vector-24596042.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-easter-eggs-white-line-pattern-on-vector-24596042" title="pattern with easter eggs white line pattern on vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/60/42/pattern-with-easter-eggs-white-line-pattern-on-vector-24596042.jpg" title="pattern with easter eggs white line pattern on" alt="pattern with easter eggs white line pattern on vector image vector image"></noscript></a></li>
+						<li data-id="21467913" data-title="set of colored gem stones pear-shaped cut" data-src="https://cdn4.vectorstock.com/i/thumbs/79/13/set-of-colored-gem-stones-pear-shaped-cut-vector-21467913.jpg"><a href="//www.vectorstock.com/royalty-free-vector/set-of-colored-gem-stones-pear-shaped-cut-vector-21467913" title="set of colored gem stones pear-shaped cut vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/79/13/set-of-colored-gem-stones-pear-shaped-cut-vector-21467913.jpg" title="set of colored gem stones pear-shaped cut" alt="set of colored gem stones pear-shaped cut vector image vector image"></noscript></a></li>
+						<li data-id="24596043" data-title="pattern with easter eggs white line pattern on" data-src="https://cdn4.vectorstock.com/i/thumbs/60/43/pattern-with-easter-eggs-white-line-pattern-on-vector-24596043.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-easter-eggs-white-line-pattern-on-vector-24596043" title="pattern with easter eggs white line pattern on vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/60/43/pattern-with-easter-eggs-white-line-pattern-on-vector-24596043.jpg" title="pattern with easter eggs white line pattern on" alt="pattern with easter eggs white line pattern on vector image vector image"></noscript></a></li>
+						<li data-id="23374305" data-title="cute hand draw icon of two juming sheep concept" data-src="https://cdn1.vectorstock.com/i/thumbs/43/05/cute-hand-draw-icon-of-two-juming-sheep-concept-vector-23374305.jpg"><a href="//www.vectorstock.com/royalty-free-vector/cute-hand-draw-icon-of-two-juming-sheep-concept-vector-23374305" title="cute hand draw icon of two juming sheep concept vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/43/05/cute-hand-draw-icon-of-two-juming-sheep-concept-vector-23374305.jpg" title="cute hand draw icon of two juming sheep concept" alt="cute hand draw icon of two juming sheep concept vector image vector image"></noscript></a></li>
+						<li data-id="25128498" data-title="pattern with human arteries" data-src="https://cdn4.vectorstock.com/i/thumbs/84/98/pattern-with-human-arteries-vector-25128498.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-human-arteries-vector-25128498" title="pattern with human arteries vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/84/98/pattern-with-human-arteries-vector-25128498.jpg" title="pattern with human arteries" alt="pattern with human arteries vector image vector image"></noscript></a></li>
+						<li data-id="25128309" data-title="red abstract template for card or banner" data-src="https://cdn5.vectorstock.com/i/thumbs/83/09/red-abstract-template-for-card-or-banner-vector-25128309.jpg"><a href="//www.vectorstock.com/royalty-free-vector/red-abstract-template-for-card-or-banner-vector-25128309" title="red abstract template for card or banner vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/83/09/red-abstract-template-for-card-or-banner-vector-25128309.jpg" title="red abstract template for card or banner" alt="red abstract template for card or banner vector image vector image"></noscript></a></li>
+						<li data-id="22743667" data-title="inscription love on the background of hearts" data-src="https://cdn3.vectorstock.com/i/thumbs/36/67/inscription-love-on-the-background-of-hearts-vector-22743667.jpg"><a href="//www.vectorstock.com/royalty-free-vector/inscription-love-on-the-background-of-hearts-vector-22743667" title="inscription love on the background of hearts vector image"><noscript><img src="https://cdn3.vectorstock.com/i/thumbs/36/67/inscription-love-on-the-background-of-hearts-vector-22743667.jpg" title="inscription love on the background of hearts" alt="inscription love on the background of hearts vector image vector image"></noscript></a></li>
+						<li data-id="20901614" data-title="flag of swaziland button with metal frame and" data-src="https://cdn5.vectorstock.com/i/thumbs/16/14/flag-of-swaziland-button-with-metal-frame-and-vector-20901614.jpg"><a href="//www.vectorstock.com/royalty-free-vector/flag-of-swaziland-button-with-metal-frame-and-vector-20901614" title="flag of swaziland button with metal frame and vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/16/14/flag-of-swaziland-button-with-metal-frame-and-vector-20901614.jpg" title="flag of swaziland button with metal frame and" alt="flag of swaziland button with metal frame and vector image vector image"></noscript></a></li>
+						<li data-id="25128469" data-title="pattern with human arteries red circles" data-src="https://cdn5.vectorstock.com/i/thumbs/84/69/pattern-with-human-arteries-red-circles-vector-25128469.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-human-arteries-red-circles-vector-25128469" title="pattern with human arteries red circles vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/84/69/pattern-with-human-arteries-red-circles-vector-25128469.jpg" title="pattern with human arteries red circles" alt="pattern with human arteries red circles vector image vector image"></noscript></a></li>
+						<li data-id="25128484" data-title="pattern with human arteries red circles" data-src="https://cdn5.vectorstock.com/i/thumbs/84/84/pattern-with-human-arteries-red-circles-vector-25128484.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-human-arteries-red-circles-vector-25128484" title="pattern with human arteries red circles vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/84/84/pattern-with-human-arteries-red-circles-vector-25128484.jpg" title="pattern with human arteries red circles" alt="pattern with human arteries red circles vector image vector image"></noscript></a></li>
+						<li data-id="23080818" data-title="a pencil stroke and a diamond-shaped golden frame" data-src="https://cdn4.vectorstock.com/i/thumbs/08/18/a-pencil-stroke-and-a-diamond-shaped-golden-frame-vector-23080818.jpg"><a href="//www.vectorstock.com/royalty-free-vector/a-pencil-stroke-and-a-diamond-shaped-golden-frame-vector-23080818" title="a pencil stroke and a diamond-shaped golden frame vector image"><noscript><img src="https://cdn4.vectorstock.com/i/thumbs/08/18/a-pencil-stroke-and-a-diamond-shaped-golden-frame-vector-23080818.jpg" title="a pencil stroke and a diamond-shaped golden frame" alt="a pencil stroke and a diamond-shaped golden frame vector image vector image"></noscript></a></li>
+						<li data-id="21467894" data-title="isolated of black swan" data-src="https://cdn5.vectorstock.com/i/thumbs/78/94/isolated-of-black-swan-vector-21467894.jpg"><a href="//www.vectorstock.com/royalty-free-vector/isolated-of-black-swan-vector-21467894" title="isolated of black swan vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/78/94/isolated-of-black-swan-vector-21467894.jpg" title="isolated of black swan" alt="isolated of black swan vector image vector image"></noscript></a></li>
+						<li data-id="22204254" data-title="greeting card with inscription in russian on" data-src="https://cdn5.vectorstock.com/i/thumbs/42/54/greeting-card-with-inscription-in-russian-on-vector-22204254.jpg"><a href="//www.vectorstock.com/royalty-free-vector/greeting-card-with-inscription-in-russian-on-vector-22204254" title="greeting card with inscription in russian on vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/42/54/greeting-card-with-inscription-in-russian-on-vector-22204254.jpg" title="greeting card with inscription in russian on" alt="greeting card with inscription in russian on vector image vector image"></noscript></a></li>
+						<li data-id="21467895" data-title="black swan silhouette with the flag of australia" data-src="https://cdn1.vectorstock.com/i/thumbs/78/95/black-swan-silhouette-with-the-flag-of-australia-vector-21467895.jpg"><a href="//www.vectorstock.com/royalty-free-vector/black-swan-silhouette-with-the-flag-of-australia-vector-21467895" title="black swan silhouette with the flag of australia vector image"><noscript><img src="https://cdn1.vectorstock.com/i/thumbs/78/95/black-swan-silhouette-with-the-flag-of-australia-vector-21467895.jpg" title="black swan silhouette with the flag of australia" alt="black swan silhouette with the flag of australia vector image vector image"></noscript></a></li>
+						<li data-id="17760979" data-title="beautiful blue diamonds shapes on blue watercolor" data-src="https://cdn5.vectorstock.com/i/thumbs/09/79/beautiful-blue-diamonds-shapes-on-blue-watercolor-vector-17760979.jpg"><a href="//www.vectorstock.com/royalty-free-vector/beautiful-blue-diamonds-shapes-on-blue-watercolor-vector-17760979" title="beautiful blue diamonds shapes on blue watercolor vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/09/79/beautiful-blue-diamonds-shapes-on-blue-watercolor-vector-17760979.jpg" title="beautiful blue diamonds shapes on blue watercolor" alt="beautiful blue diamonds shapes on blue watercolor vector image vector image"></noscript></a></li>
+						<li data-id="25128499" data-title="pattern with human arteries" data-src="https://cdn5.vectorstock.com/i/thumbs/84/99/pattern-with-human-arteries-vector-25128499.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-human-arteries-vector-25128499" title="pattern with human arteries vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/84/99/pattern-with-human-arteries-vector-25128499.jpg" title="pattern with human arteries" alt="pattern with human arteries vector image vector image"></noscript></a></li>
+						<li data-id="22743619" data-title="pattern with a rose flamingo on a blue background" data-src="https://cdn5.vectorstock.com/i/thumbs/36/19/pattern-with-a-rose-flamingo-on-a-blue-background-vector-22743619.jpg"><a href="//www.vectorstock.com/royalty-free-vector/pattern-with-a-rose-flamingo-on-a-blue-background-vector-22743619" title="pattern with a rose flamingo on a blue background vector image"><noscript><img src="https://cdn5.vectorstock.com/i/thumbs/36/19/pattern-with-a-rose-flamingo-on-a-blue-background-vector-22743619.jpg" title="pattern with a rose flamingo on a blue background" alt="pattern with a rose flamingo on a blue background vector image vector image"></noscript></a></li>
+						<li class="more"><div><a href="/royalty-free-vectors/vectors-by_mlanaa" rel="nofollow"><span class="lrg">More Images…</span><span class="sml">More</span></a></div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="group-keywords" class="group">
+				<h6><span class="icon"></span><strong>Related Searches</strong></h6>
+				<ul>
+					<li><a href="/royalty-free-vectors/diamond-vectors">Diamond</a></li>
+					<li><a href="/royalty-free-vectors/logo-vectors">Logo</a></li>
+					<li><a href="/royalty-free-vectors/blue-vectors">Blue</a></li>
+					<li><a href="/royalty-free-vectors/star-vectors">Star</a></li>
+					<li><a href="/royalty-free-vectors/art-vectors">Art</a></li>
+					<li><a href="/royalty-free-vectors/clip-vectors">Clip</a></li>
+					<li><a href="/royalty-free-vectors/background-vectors">Background</a></li>
+					<li><a href="/royalty-free-vectors/vector-vectors">Vector</a></li>
+					<li><a href="/royalty-free-vectors/symbol-vectors">Symbol</a></li>
+					<li><a href="/royalty-free-vectors/gemstone-vectors">Gemstone</a></li>
+					<li><a href="/royalty-free-vectors/triangle-vectors">Triangle</a></li>
+					<li><a href="/royalty-free-vectors/crystal-vectors">Crystal</a></li>
+					<li><a href="/royalty-free-vectors/retro-vectors">Retro</a></li>
+					<li><a href="/royalty-free-vectors/white-vectors">White</a></li>
+					<li><a href="/royalty-free-vectors/banner-vectors">Banner</a></li>
+					<li><a href="/royalty-free-vectors/jewelry-vectors">Jewelry</a></li>
+					<li><a href="/royalty-free-vectors/technology-vectors">Technology</a></li>
+					<li><a href="/royalty-free-vectors/gem-vectors">Gem</a></li>
+					<li><a href="/royalty-free-vectors/precious-vectors">Precious</a></li>
+					<li><a href="/royalty-free-vectors/isolated-vectors">Isolated</a></li>
+					<li><a href="/royalty-free-vectors/illustration-vectors">Illustration</a></li>
+					<li><a href="/royalty-free-vectors/design-vectors">Design</a></li>
+					<li><a href="/royalty-free-vectors/gift-vectors">Gift</a></li>
+					<li><a href="/royalty-free-vectors/silhouette-vectors">Silhouette</a></li>
+					<li><a href="/royalty-free-vectors/luxury-vectors">Luxury</a></li>
+					<li><a href="/royalty-free-vectors/icon-vectors">Icon</a></li>
+					<li><a href="/royalty-free-vectors/business-vectors">Business</a></li>
+					<li><a href="/royalty-free-vectors/vintage-vectors">Vintage</a></li>
+					<li><a href="/royalty-free-vectors/fashion-vectors">Fashion</a></li>
+					<li><a href="/royalty-free-vectors/pattern-vectors">Pattern</a></li>
+					<li><a href="/royalty-free-vectors/wedding-vectors">Wedding</a></li>
+					<li><a href="/royalty-free-vectors/abstract-vectors">Abstract</a></li>
+					<li><a href="/royalty-free-vectors/object-vectors">Object</a></li>
+					<li><a href="/royalty-free-vectors/company-vectors">Company</a></li>
+					<li><a href="/royalty-free-vectors/shimmer-vectors">Shimmer</a></li>
+					<li><a href="/royalty-free-vectors/purity-vectors">Purity</a></li>
+					<li><a href="/royalty-free-vectors/value-vectors">Value</a></li>
+					<li><a href="/royalty-free-vectors/light-vectors">Light</a></li>
+					<li><a href="/royalty-free-vectors/glowing-vectors">Glowing</a></li>
+					<li><a href="/royalty-free-vectors/creative-vectors">Creative</a></li>
+					<li><a href="/royalty-free-vectors/set-vectors">Set</a></li>
+					<li><a href="/royalty-free-vectors/shiny-vectors">Shiny</a></li>
+					<li><a href="/royalty-free-vectors/jewel-vectors">Jewel</a></li>
+					<li><a href="/royalty-free-vectors/sparkle-vectors">Sparkle</a></li>
+					<li><a href="/royalty-free-vectors/glossy-vectors">Glossy</a></li>
+					<li><a href="/royalty-free-vectors/bright-vectors">Bright</a></li>
+					<li><a href="/royalty-free-vectors/shape-vectors">Shape</a></li>
+					<li><a href="/royalty-free-vectors/romantic-vectors">Romantic</a></li>
+					<li><a href="/royalty-free-vectors/black-vectors">Black</a></li>
+					<li><a href="/royalty-free-vectors/geometric-vectors">Geometric</a></li>
+				</ul>
+			</div>
+		</section>
+	</article>
+
+	<!-- Footer -->
+	<footer>
+
+		<div>
+		<div class="column c1">
+			<nav class="company">
+				<h4>VectorStock</h4>
+				<ul>
+					<li><a href="/" title="Home">Home</a></li>
+					<li class="sel"><a href="/free-vectors" title="Free Vectors">Free Vectors</a></li>
+					<li class="sel"><a href="/royalty-free-vectors" title="All Royalty-Free Vectors">All Vectors</a></li>
+				</ul>
+				<ul>
+					<li><a href="/what-is-a-vector" title="What is a Vector?">What is a Vector?</a></li>
+				</ul>
+				<ul>
+					<li class="sel"><a href="/faq" title="Frequently Asked Questions"><span class="long">Frequently Asked Questions</span><span class="short">FAQs</span></a></li>
+					<li><a href="/faq/members/terms-of-use" title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+					<li class="sel"><a href="/contact" title="Contact Us">Contact Us</a></li>
+									</ul>
+			</nav>
+		</div>
+		<div class="column c2">
+			<nav class="account">
+					<h4><span class="title">Account</span><span class="icon"></span></h4>
+					<ul>
+						<li><a href="/signup" title="Join Now">Join Now</a></li>
+						<li><a href="/signup?contributor" title="Become a VectorStock Contributor">Contributor Sign Up</a></li>
+						<li><a href="/faq/artists/why-sell-at-vectorstock" title="Contributor FAQ">Contributor FAQ</a></li>
+					</ul>
+			</nav>
+		</div>
+		<div class="column c3">
+			<nav class="social">
+				<h4>Social</h4>
+				<ul>
+					<li class="facebook sel"><a href="http://www.facebook.com/VectorStock" target="_blank"><span class="title">Facebook</span><span class="icon"></span></a></li>
+					<li class="pinterest sel"><a href="http://pinterest.com/vectorstock/" target="_blank"><span class="title">Pinterest</span><span class="icon"></span></a></li>
+					<li class="twitter sel"><a href="https://twitter.com/VectorStock" target="_blank"><span class="title">Twitter</span><span class="icon"></span></a></li>
+				</ul>
+			</nav>
+			<div class="signoff">
+				<h5><a href="https://www.vectorstock.com/" title="VectorStock®">VectorStock®</a></h5>
+				<p>VectorStock and the VectorStock logo are registered trademarks of VectorStock Media.<br>
+				© 2019. <span>All Rights Reserved.</span></p>
+			</div>
+		</div>
+	</div></footer>
+
+
+	<script src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"02e09611df","applicationID":"156179534","transactionName":"ZV0ENRYCC0RYAkVbDVwXJRQXFwpaFhNeSwNeTB9MAhEAUhQXVFEWXUpJAwgWABpdCFBfDVxcSxIdDgdYVUxdXQVdFRAEBxcKRRRTAAZUBQBfVg==","queueTime":0,"applicationTime":35,"atts":"SRoHQ14YGEo=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+</body>
+</html>
