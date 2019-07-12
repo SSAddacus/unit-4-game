@@ -20,8 +20,12 @@ var newUserValue= 0
 var winCounter=0
 var loseCounter=0
 
-$("#Start").on("click",startGame())
-
+$("#Start").on("click",function(){
+    startGame()
+})
+$('#Restart').on("click",function(){
+    restartGame()
+})
 
 function startGame(){
 diamond.value = Math.floor(Math.random() * 3);
@@ -142,4 +146,9 @@ function winCheck(){
         startGame()
     }
 
+}
+function restartGame(){
+    winCounter=0
+    loseCounter=0
+    startGame()
 }
