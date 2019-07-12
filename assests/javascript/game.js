@@ -16,9 +16,9 @@ var emerald = [
 ];
 var winningValue = 0
 var userTotal= 0
-
-
-
+var newUserValue= 0
+var winCounter=0
+var loseCounter=0
 
 $("#Start").on("click",startGame())
 
@@ -29,9 +29,9 @@ ruby.value = Math.floor(Math.random()*3);
 opal.value= Math.floor(Math.random()*3);
 emerald.value = Math.floor(Math.random()*3);
 winningValue = Math.floor(Math.random()*5);
+userTotal=0
 
-
-console.log("Diamond:", diamond.value | "Ruby:", ruby.value |"Opal", opal.value | "Emerald:", emerald.value | winningValue)
+console.log("Values:", diamond.value | "Ruby:", ruby.value |"Opal", opal.value | "Emerald:", emerald.value | winningValue)
 if (diamond.value===0){
     diamond.value=75
 }else if (diamond.value === 1){
@@ -80,13 +80,15 @@ if (winningValue===0){
     winningValue=500
 
 
-    $("#diamond").on("click",diamond.value+userTotal)
+    // $("#diamond").on("click",function(){
+    //     diamond.value+userTotal
+    // })
 
-    $("#ruby").on("click",ruby.value+userTotal)
+    // $("#ruby").on("click",ruby.value+userTotal)
 
-    $("#opal").on("click",opal.value+userTotal)
+    // $("#opal").on("click",opal.value+userTotal)
 
-    $("#emerald").on("click",emerald.value+userTotal)
+    // $("#emerald").on("click",emerald.value+userTotal)
 
 
     
@@ -96,10 +98,48 @@ console.log("Winning:", winningValue)
 // $("#Winning-Number").text("Winning Number:"+ winningValue)
 // $("#User-Number").text("Your Total:" + userTotal)
 }
+function addValue(){
+    $("#diamond").on("click",newUserTotal=diamond.value+userTotal)
+winCheck()
+
+}
+$("#diamond").on("click",function(){
+    userTotal+=diamond.value
+    winCheck()
+console.log(userTotal)
+})
+
+$("#ruby").on("click",function(){
+    userTotal+=ruby.value
+    winCheck()
+})
+
+$("#opal").on("click",function(){
+    userTotal+=opal.value
+    winCheck()
+    console.log(userTotal)
+})
+
+$("#emerald").on("click",function(){
+    userTotal+=emerald.value
+    winCheck()
+    console.log(userTotal)
+})
+
 
 function winCheck(){
     $("#Winning-Number").text("Winning Number:"+ winningValue)
     $("#User-Number").text("Your Total:" + userTotal)
+    $("#Win").text("Wins:" + winCounter)
+    $("#Loss").text("Losses:" + loseCounter)
     if(userTotal === winningValue){
         alert("YOU WIN!")
-    }}
+        winCounter++
+        startGame()
+    }else if(userTotal > winningValue){
+        alert("Lose")
+        loseCounter++
+        startGame()
+    }
+
+}
